@@ -1,0 +1,19 @@
+{% capture tocContent %}
+{% assign minHeader = 2 %}
+{% assign maxHeader = 3 %}
+{% assign nodes = include.html | split: '<h' %}
+<ul class="toc-list">
+{% for node in nodes %}
+  {% if node == "" %}{% continue %}{% endif %}
+  {% assign level = node | slice: 0, 1 | plus: 0 %}
+  {% if level >= minHeader and level <= maxHeader %}
+    {% assign id = node | split: 'id="' | last | split: '"' | first %}
+    {% assign title = node | split: '">' | last | split: '</h' | first %}
+    <li class="toc-entry toc-h{{ level }}">
+      <a href="#{{ id }}">{{ title }}</a>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endcapture %}
+{{ tocContent }}

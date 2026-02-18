@@ -1,0 +1,98 @@
+backend:
+  name: github
+  repo: Fadi-AICH/Fadi-AICH.github.io
+  branch: main
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+collections:
+  # --- Write-ups & Notes ---
+  - name: "posts"
+    label: "Write-ups & Notes"
+    label_singular: "Note"
+    folder: "_posts"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date | date('YYYY-MM-DD')}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false, hint: "Room banner / screenshot" }
+      - label: "Categories"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        min: 1
+        options:
+          - "TryHackMe"
+          - "HackTheBox"
+          - "Cyber Notes"
+          - "Linux"
+          - "Networking"
+          - "Python Hacking"
+          - "Windows"
+          - "Web Security"
+          - "OSINT"
+          - "Active Directory"
+          - "Forensics"
+          - "Cryptography"
+          - "Reverse Engineering"
+          - "Malware Analysis"
+          - "Cloud Security"
+      - label: "Difficulty"
+        name: "difficulty"
+        widget: "select"
+        required: false
+        options:
+          - "Facile"
+          - "Medium"
+          - "Hard"
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, hint: "Press Enter after each tag" }
+      - { label: "Table of Contents", name: "toc", widget: "boolean", default: true }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # --- Certifications ---
+  - name: "certifications"
+    label: "Certifications"
+    files:
+      - name: "cert-roadmap"
+        label: "Certification Roadmap"
+        file: "_data/certifications.yml"
+        description: "Add, edit or reorder your certifications"
+        fields:
+          - label: "Certifications"
+            name: "items"
+            widget: "list"
+            allow_add: true
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Provider", name: "provider", widget: "string" }
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options:
+                  - { label: "🟢 Completed", value: "completed" }
+                  - { label: "🟡 In Progress", value: "in-progress" }
+                  - { label: "🔴 Not Started", value: "not-started" }
+              - { label: "Description", name: "description", widget: "string", required: false }
+              - { label: "Post URL (if completed)", name: "post_url", widget: "string", required: false, hint: "e.g. /tryhackme/thm-blue/" }
+
+  # --- Categories Manager ---
+  - name: "categories"
+    label: "Categories"
+    files:
+      - name: "categories-list"
+        label: "Manage Categories"
+        file: "_data/categories.yml"
+        description: "Add, edit categories with images and descriptions"
+        fields:
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            allow_add: true
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Image", name: "image", widget: "image", required: false, hint: "Category banner" }
+              - { label: "Description", name: "description", widget: "string", required: false }

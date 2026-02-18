@@ -1,0 +1,98 @@
+---
+layout: default
+---
+
+<div class="certifications-page">
+  <h1>{{ page.title }}</h1>
+
+  <!-- Global Progress Bar -->
+  <div class="cert-progress-wrapper">
+    <div class="cert-progress-header">
+      <span class="cert-progress-label">Roadmap Progress</span>
+      <span class="cert-progress-count" id="cert-count">0 / 15 Completed</span>
+    </div>
+    <div class="cert-progress-bar">
+      <div class="cert-progress-fill" id="cert-fill"></div>
+    </div>
+  </div>
+
+  <!-- Filter Buttons -->
+  <div class="cert-filters">
+    <button class="cert-filter active" data-filter="all">All</button>
+    <button class="cert-filter" data-filter="completed">Completed</button>
+    <button class="cert-filter" data-filter="in-progress">In Progress</button>
+    <button class="cert-filter" data-filter="not-started">Not Started</button>
+  </div>
+
+  <!-- Certification Grid -->
+  <div class="cert-grid" id="cert-grid">
+    {% if site.data.certifications.items %}
+      {% assign certs = site.data.certifications.items %}
+    {% elsif site.data.certifications.certifications %}
+      {% assign certs = site.data.certifications.certifications %}
+    {% else %}
+      {% assign certs = site.data.certifications %}
+    {% endif %}
+    {% for cert in certs %}
+    <div class="cert-card" data-status="{{ cert.status }}">
+      <div class="cert-card-header">
+        <span class="cert-badge cert-badge--{{ cert.status }}">
+          {% if cert.status == "completed" %}🟢{% elsif cert.status == "in-progress" %}🟡{% else %}🔴{% endif %}
+        </span>
+        <span class="cert-number">#{{ forloop.index }}</span>
+      </div>
+      <div class="cert-card-body">
+        <h3 class="cert-title">
+          {% if cert.status == "completed" and cert.post_url %}
+            <a href="{{ cert.post_url | relative_url }}">{{ cert.name }}</a>
+          {% else %}
+            {{ cert.name }}
+          {% endif %}
+        </h3>
+        <p class="cert-provider">{{ cert.provider }}</p>
+        {% if cert.description %}
+        <p class="cert-desc">{{ cert.description }}</p>
+        {% endif %}
+      </div>
+      <div class="cert-card-footer">
+        <span class="cert-status-text">
+          {% if cert.status == "completed" %}Completed
+          {% elsif cert.status == "in-progress" %}In Progress
+          {% else %}Not Started{% endif %}
+        </span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.cert-card');
+  const total = cards.length;
+  let completed = 0;
+
+  cards.forEach(function(card) {
+    if (card.dataset.status === 'completed') completed++;
+  });
+
+  document.getElementById('cert-count').textContent = completed + ' / ' + total + ' Completed';
+  document.getElementById('cert-fill').style.width = ((completed / total) * 100) + '%';
+
+  // Filters
+  document.querySelectorAll('.cert-filter').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.cert-filter').forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      var filter = this.dataset.filter;
+      cards.forEach(function(card) {
+        if (filter === 'all' || card.dataset.status === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>

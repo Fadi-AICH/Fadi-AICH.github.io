@@ -1,0 +1,33 @@
+---
+layout: default
+title: Categories
+---
+
+<div class="two-column">
+  <div class="main-col page-content">
+    <h1 class="page-title">Categories</h1>
+
+    {% assign sorted_cats = site.categories | sort %}
+    {% for category in sorted_cats %}
+    <div class="taxonomy-section" id="{{ category[0] | slugify }}">
+      <h2><i class="far fa-folder-open"></i> {{ category[0] }} <span style="color:var(--text-muted);font-size:.85rem;">({{ category[1].size }})</span></h2>
+      <ul class="taxonomy-list">
+        {% for post in category[1] %}
+        <li>
+          {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" class="recent-thumb">{% endif %}
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+          {% if post.difficulty %}
+          <span class="difficulty difficulty--{{ post.difficulty | downcase }}">{{ post.difficulty }}</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+
+  <aside class="right-panel">
+    {% include trending-tags.html %}
+  </aside>
+</div>

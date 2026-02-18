@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<div class="two-column">
+  <article class="main-col post-content">
+    {% if page.image %}
+    <div class="post-banner">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <header class="post-header">
+      <h1>{{ page.title }}</h1>
+      <div class="post-meta">
+        <span><i class="far fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.categories.size > 0 %}
+        <span><i class="far fa-folder-open"></i>
+          {% for cat in page.categories %}
+          <a href="{{ '/categories/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+        {% endif %}
+        {% if page.difficulty %}
+        <span class="difficulty difficulty--{{ page.difficulty | downcase }}">
+          {{ page.difficulty }}
+        </span>
+        {% endif %}
+      </div>
+      <div class="post-tags">
+        {% for tag in page.tags %}
+        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </header>
+
+    <div class="content" id="post-body">
+      {{ content }}
+    </div>
+  </article>
+
+  <aside class="right-panel">
+    {% if page.toc %}
+    <div class="widget toc-widget">
+      <h3 class="widget-title"><i class="fas fa-list"></i> Table of Contents</h3>
+      <ul class="toc-list" id="toc-list"></ul>
+    </div>
+    {% endif %}
+
+    {% include trending-tags.html %}
+  </aside>
+</div>
+
+{% if page.toc %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var content = document.getElementById('post-body');
+  var tocList = document.getElementById('toc-list');
+  if (!content || !tocList) return;
+  var headings = content.querySelectorAll('h2, h3');
+  headings.forEach(function(h, i) {
+    if (!h.id) h.id = 'heading-' + i;
+    var li = document.createElement('li');
+    li.className = 'toc-entry toc-' + h.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+});
+</script>
+{% endif %}

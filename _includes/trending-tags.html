@@ -1,0 +1,11 @@
+<div class="trending-tags widget">
+  <h3 class="widget-title"><i class="fas fa-fire"></i> Trending Tags</h3>
+  <div class="tag-cloud">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags limit: 12 %}
+    <a href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}" class="tag-pill">
+      {{ tag[0] }} <span class="tag-count">{{ tag[1].size }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
