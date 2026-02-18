@@ -1,7 +1,7 @@
 ---
 title: Python for Hacking — Getting Started
 date: 2025-03-20
-image: /assets/img/téléchargement.png
+image: /assets/img/telechargement.png
 categories:
   - Cyber Notes
   - Python Hacking
