@@ -1,15 +1,16 @@
 categories:
-  - name: "TryHackMe"
-    image: "/assets/img/cat-tryhackme.png"
-    description: "TryHackMe room write-ups and walkthroughs"
-  - name: "HackTheBox"
-    image: "/assets/img/cat-hackthebox.png"
-    description: "HackTheBox machine write-ups"
-  - name: "Cyber Notes"
-    description: "General cybersecurity study notes"
-  - name: "Linux"
-    description: "Linux administration and command line"
-  - name: "Networking"
-    description: "Network fundamentals and protocols"
-  - name: "Python Hacking"
-    description: "Python scripting for security"
+  - name: TryHackMe
+    image: /assets/img/cat-tryhackme.png
+    description: TryHackMe room write-ups and walkthroughs
+  - name: HackTheBox
+    image: /assets/img/cat-hackthebox.png
+    description: HackTheBox machine write-ups
+  - name: Cyber Notes
+    description: General cybersecurity study notes
+  - name: Linux
+    description: Linux administration and command line
+    image: /assets/img/telechargement-1.png
+  - name: Networking
+    description: Network fundamentals and protocols
+  - name: Python Hacking
+    description: Python scripting for security
