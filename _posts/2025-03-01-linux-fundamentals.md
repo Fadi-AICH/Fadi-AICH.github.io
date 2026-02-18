@@ -1,7 +1,7 @@
 ---
 title: Linux Fundamentals — Essential Commands
 date: 2025-03-01
-image: /assets/img/téléchargement-1-.png
+image: /assets/img/telechargement-1.png
 categories:
   - Cyber Notes
   - Linux
