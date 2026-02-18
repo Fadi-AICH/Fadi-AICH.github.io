@@ -3,30 +3,75 @@ layout: page
 title: About
 ---
 
-## About Fadix
+## Fadi AICH
 
-Cybersecurity enthusiast on a mission to master offensive and defensive security.
+**Computer Engineering Student** specializing in **Cybersecurity & Complex Systems**
 
-This portfolio tracks my learning journey through a **15-course certification roadmap**, from foundational IT concepts to advanced penetration testing (OSCP).
+Rabat, Morocco &bull; [fadiaich1@gmail.com](mailto:fadiaich1@gmail.com)
 
-### What You'll Find Here
+---
 
-- **Write-ups**: Detailed walkthroughs of TryHackMe and HackTheBox machines
-- **Cyber Notes**: Study notes on Linux, Networking, and Python for hacking
-- **Certifications**: Progress tracker for my cybersecurity roadmap
+### Profile
 
-### Current Focus
+Computer engineering student with hands-on experience in network monitoring, intrusion detection, and security data analysis. Strong interest in security engineering, data-driven approaches, and high-demand environments. Research-oriented mindset focused on continuous improvement and solving complex technical problems.
 
-- CompTIA Security+ (SY0-701) preparation
-- TryHackMe & HackTheBox active practice
-- Linux administration and scripting
+---
+
+### Skills
+
+| Domain | Technologies |
+|---|---|
+| **Cybersecurity** | OWASP Top 10, Pentesting, WAF, SELKS Stack, Suricata, ELK, IDS/IPS |
+| **Cloud & DevOps** | Azure, Docker, CI/CD, GitHub Actions, Bash, Linux Admin |
+| **AI / ML** | CNN, MLP, Random Forest, Deep Learning, Streamlit |
+| **Languages** | C, C++, Python, PHP, Java, SQL |
+| **Backend** | FastAPI, Node.js, Express.js |
+| **Frontend** | HTML, CSS, JavaScript |
+| **Languages** | Arabic (Native), French (Bilingual), English (Professional), Spanish (B1) |
+
+---
+
+### Education
+
+- **Computer Engineering - 4th Year (CI2)** &mdash; ISMAGI, Rabat *(Since Oct 2025)*
+- **Computer Engineering - 1st to 3rd Year** &mdash; ENSI, Tanger *(Oct 2022 - Sept 2025)*
+- **1st Year Medicine** &mdash; Medical University Astrakhan, Russia *(Sept 2021 - June 2022)*
+- **Baccalaureate in Physical Sciences** (with honors) &mdash; Nador, Morocco *(2018 - 2021)*
+
+---
+
+### Experience
+
+- **Internship** &mdash; Tanger Med Port Authority (TMPA) *(Jul 2025 - Sept 2025)*
+- **Internship** &mdash; Tanger Med Port Authority (TMPA) *(Jul 2024)*
+- **Internship** &mdash; Tanger Med Port Authority (TMPA) *(Jul 2023)*
+- **Hospital Internship** &mdash; City Clinical Hospital #31, Saint Petersburg, Russia *(Aug 2022)*
+
+---
+
+### Projects
+
+- **AI Intrusion Detection** &mdash; CNN 1D, Random Forest, MLP pipeline with Streamlit dashboard for real-time traffic analysis
+- **Cloud & Vision (Azure)** &mdash; Custom Vision model deployed via REST API and Docker
+- **Distributed Architecture** &mdash; Multi-protocol booking system (REST, SOAP, RMI, Sockets) with JavaFX
+- **Cybersecurity & Monitoring** &mdash; SELKS stack deployment, Linux monitoring automation, API security
+- **Security Audit & Pentesting** &mdash; OWASP Top 10 attack simulation, SQLi/XSS identification, WAF setup
+- **Software Engineering** &mdash; Lexical/syntactic analyzer in C, secure web platforms with automated deployment
+
+---
+
+### Activities
+
+- Planted 380 trees in school development project
+- Microsoft Tech Day Tanger &mdash; Active participant (Jan 2025)
+- Online chess tournaments for strategic thinking
+
+---
 
 ### Contact
 
-- GitHub: [fadix](https://github.com/fadix)
-- LinkedIn: [fadix](https://linkedin.com/in/fadix)
-- TryHackMe: [fadix](https://tryhackme.com/p/fadix)
-
----
+- GitHub: [Fadi-AICH](https://github.com/Fadi-AICH)
+- TryHackMe: [FadiX](https://tryhackme.com/p/FadiX)
+- LinkedIn: [fadiaich](https://linkedin.com/in/fadiaich)
 
 > *"Todo lo que aprendo lo subo aquí..."*

@@ -13,7 +13,19 @@ layout: default
             <div class="card-meta">
               <span><i class="far fa-calendar"></i> {{ post.date | date: "%b %d, %Y" }}</span>
               {% if post.categories.size > 0 %}
-              <span><i class="far fa-folder-open"></i> {{ post.categories | join: ", " }}</span>
+                {% for cat in post.categories %}
+                <span class="card-cat-badge card-cat-badge--{{ cat | slugify }}">
+                  {% if cat == "TryHackMe" %}<i class="fas fa-skull-crossbones"></i>
+                  {% elsif cat == "HackTheBox" %}<i class="fas fa-cube"></i>
+                  {% elsif cat == "Cyber Notes" %}<i class="fas fa-shield-alt"></i>
+                  {% elsif cat == "Linux" %}<i class="fab fa-linux"></i>
+                  {% elsif cat == "Networking" %}<i class="fas fa-network-wired"></i>
+                  {% elsif cat == "Python Hacking" %}<i class="fab fa-python"></i>
+                  {% else %}<i class="far fa-folder-open"></i>
+                  {% endif %}
+                  {{ cat }}
+                </span>
+                {% endfor %}
               {% endif %}
               {% if post.difficulty %}
               <span class="difficulty difficulty--{{ post.difficulty | downcase }}">{{ post.difficulty }}</span>
