@@ -11,18 +11,84 @@ title: Categories
     {% for category in sorted_cats %}
     <div class="taxonomy-section" id="{{ category[0] | slugify }}">
       <h2><i class="far fa-folder-open"></i> {{ category[0] }} <span style="color:var(--text-muted);font-size:.85rem;">({{ category[1].size }})</span></h2>
-      <ul class="taxonomy-list">
-        {% for post in category[1] %}
-        <li>
-          {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" class="recent-thumb">{% endif %}
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
-          {% if post.difficulty %}
-          <span class="difficulty difficulty--{{ post.difficulty | downcase }}">{{ post.difficulty }}</span>
-          {% endif %}
-        </li>
+
+      {% assign subcats = "" %}
+      {% assign has_subcats = false %}
+      {% for post in category[1] %}
+        {% if post.subcategory and post.subcategory != "" %}
+          {% assign has_subcats = true %}
+          {% unless subcats contains post.subcategory %}
+            {% if subcats == "" %}
+              {% assign subcats = post.subcategory %}
+            {% else %}
+              {% assign subcats = subcats | append: "|||" | append: post.subcategory %}
+            {% endif %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+
+      {% if has_subcats %}
+        {% assign subcat_arr = subcats | split: "|||" %}
+        {% for sc in subcat_arr %}
+        <div class="subcategory-section">
+          <h3 class="subcategory-title"><i class="fas fa-layer-group"></i> {{ sc }}</h3>
+          <ul class="taxonomy-list">
+            {% for post in category[1] %}
+              {% if post.subcategory == sc %}
+              <li>
+                {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" class="recent-thumb">{% endif %}
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+                {% if post.difficulty %}
+                <span class="difficulty difficulty--{{ post.difficulty | downcase }}">{{ post.difficulty }}</span>
+                {% endif %}
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
         {% endfor %}
-      </ul>
+
+        {% assign unsorted = false %}
+        {% for post in category[1] %}
+          {% unless post.subcategory and post.subcategory != "" %}
+            {% assign unsorted = true %}
+          {% endunless %}
+        {% endfor %}
+        {% if unsorted %}
+        <div class="subcategory-section">
+          <h3 class="subcategory-title"><i class="fas fa-file-alt"></i> Other</h3>
+          <ul class="taxonomy-list">
+            {% for post in category[1] %}
+              {% unless post.subcategory and post.subcategory != "" %}
+              <li>
+                {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" class="recent-thumb">{% endif %}
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+                {% if post.difficulty %}
+                <span class="difficulty difficulty--{{ post.difficulty | downcase }}">{{ post.difficulty }}</span>
+                {% endif %}
+              </li>
+              {% endunless %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+      {% else %}
+        <ul class="taxonomy-list">
+          {% for post in category[1] %}
+          <li>
+            {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" class="recent-thumb">{% endif %}
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+            {% if post.difficulty %}
+            <span class="difficulty difficulty--{{ post.difficulty | downcase }}">{{ post.difficulty }}</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </div>
     {% endfor %}
   </div>

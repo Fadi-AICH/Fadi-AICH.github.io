@@ -26,7 +26,7 @@ collections:
         name: "certification"
         widget: "select"
         required: false
-        hint: "Link this note to a certification (select from dropdown)"
+        hint: "Link this note to a certification"
         options:
           - "Introduction to Cybersecurity"
           - "Google Cybersecurity Certificate"
@@ -64,6 +64,11 @@ collections:
           - "Reverse Engineering"
           - "Malware Analysis"
           - "Cloud Security"
+      - label: "Subcategory"
+        name: "subcategory"
+        widget: "string"
+        required: false
+        hint: "Group notes under a subsection (e.g. Cyber Security 101, OWASP Module)"
       - label: "Difficulty"
         name: "difficulty"
         widget: "select"
@@ -74,7 +79,7 @@ collections:
           - "Hard"
       - { label: "Tags", name: "tags", widget: "list", allow_add: true, hint: "Press Enter after each tag" }
       - { label: "Table of Contents", name: "toc", widget: "boolean", default: true }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", modes: ["raw", "rich_text"] }
 
   # --- Certifications ---
   - name: "certifications"

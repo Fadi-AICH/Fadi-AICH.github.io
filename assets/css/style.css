@@ -811,6 +811,24 @@ a.cert-card:hover .cert-title { color: var(--accent); }
   padding-bottom: .35rem;
   border-bottom: 1px solid var(--border-color);
 }
+
+/* Subcategory sections */
+.subcategory-section {
+  margin-left: .75rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+}
+.subcategory-title {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.subcategory-title i { font-size: .8rem; }
 .taxonomy-list { list-style: none; }
 .taxonomy-list li {
   padding: .5rem 0;
