@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+{% assign cert_slug = page.cert_slug %}
+{% assign cert = nil %}
+{% for c in site.data.certifications.items %}
+  {% if c.slug == cert_slug %}
+    {% assign cert = c %}
+  {% endif %}
+{% endfor %}
+
+<div class="cert-detail-page">
+  {% if cert %}
+  <div class="cert-detail-header">
+    <span class="cert-badge-lg cert-badge--{{ cert.status }}">
+      {% if cert.status == "completed" %}🟢{% elsif cert.status == "in-progress" %}🟡{% else %}🔴{% endif %}
+    </span>
+    <div>
+      <h1>{{ cert.name }}</h1>
+      <p class="cert-detail-provider"><i class="fas fa-building"></i> {{ cert.provider }}</p>
+      <span class="cert-status-pill cert-status-pill--{{ cert.status }}">
+        {% if cert.status == "completed" %}Completed{% elsif cert.status == "in-progress" %}In Progress{% else %}Not Started{% endif %}
+      </span>
+    </div>
+  </div>
+
+  {% if cert.description %}
+  <p class="cert-detail-desc">{{ cert.description }}</p>
+  {% endif %}
+
+  <div class="cert-notes-section">
+    <h2><i class="fas fa-book"></i> Notes & Sub-notes</h2>
+
+    {% assign notes = site.posts | where: "certification", cert.name %}
+    {% if notes.size > 0 %}
+    <div class="cert-notes-list">
+      {% for note in notes %}
+      <a href="{{ note.url | relative_url }}" class="cert-note-card">
+        <div class="cert-note-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="cert-note-info">
+          <h3>{{ note.title }}</h3>
+          <div class="cert-note-meta">
+            <span><i class="far fa-calendar"></i> {{ note.date | date: "%b %d, %Y" }}</span>
+            {% if note.difficulty %}
+            <span class="difficulty difficulty--{{ note.difficulty | downcase }}">{{ note.difficulty }}</span>
+            {% endif %}
+          </div>
+          <p>{{ note.excerpt | strip_html | truncate: 120 }}</p>
+        </div>
+        <i class="fas fa-chevron-right cert-note-arrow"></i>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="cert-notes-empty">
+      <i class="fas fa-folder-open"></i>
+      <p>No notes yet for this certification.</p>
+      <p class="cert-notes-hint">Add notes via the <a href="/admin/#/collections/posts/new">Admin Panel</a></p>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="cert-detail-back">
+    <a href="{{ '/certifications/' | relative_url }}"><i class="fas fa-arrow-left"></i> Back to Roadmap</a>
+  </div>
+
+  {% else %}
+  <p>Certification not found.</p>
+  {% endif %}
+</div>

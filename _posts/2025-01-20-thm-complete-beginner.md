@@ -2,6 +2,7 @@
 title: "TryHackMe Complete Beginner Path — Notes"
 date: 2025-01-20
 categories: [TryHackMe]
+certification: "TryHackMe - Complete Beginner Path"
 tags: [tryhackme, linux, networking, web-hacking, scripting]
 difficulty: Facile
 toc: true

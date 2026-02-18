@@ -22,6 +22,27 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "image", widget: "image", required: false, hint: "Room banner / screenshot" }
+      - label: "Certification"
+        name: "certification"
+        widget: "select"
+        required: false
+        hint: "Link this note to a certification (select from dropdown)"
+        options:
+          - "Introduction to Cybersecurity"
+          - "Google Cybersecurity Certificate"
+          - "CompTIA Security+ (SY0-701)"
+          - "TryHackMe - Complete Beginner Path"
+          - "TryHackMe - Pre Security Path"
+          - "HackTheBox - Starting Point"
+          - "TCM Security - Practical Ethical Hacking"
+          - "eLearnSecurity eJPT"
+          - "Cisco CCNA (200-301)"
+          - "Linux Essentials (LPI)"
+          - "Python for Hackers"
+          - "OWASP Top 10 Mastery"
+          - "Blue Team Level 1 (BTL1)"
+          - "CompTIA CySA+ (CS0-003)"
+          - "OSCP Preparation"
       - label: "Categories"
         name: "categories"
         widget: "select"
@@ -70,16 +91,16 @@ collections:
             allow_add: true
             fields:
               - { label: "Name", name: "name", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe identifier (e.g. thm-pre-security). Must match the detail page filename." }
               - { label: "Provider", name: "provider", widget: "string" }
               - label: "Status"
                 name: "status"
                 widget: "select"
                 options:
-                  - { label: "🟢 Completed", value: "completed" }
-                  - { label: "🟡 In Progress", value: "in-progress" }
-                  - { label: "🔴 Not Started", value: "not-started" }
+                  - { label: "Completed", value: "completed" }
+                  - { label: "In Progress", value: "in-progress" }
+                  - { label: "Not Started", value: "not-started" }
               - { label: "Description", name: "description", widget: "string", required: false }
-              - { label: "Post URL (if completed)", name: "post_url", widget: "string", required: false, hint: "e.g. /tryhackme/thm-blue/" }
 
   # --- Categories Manager ---
   - name: "categories"

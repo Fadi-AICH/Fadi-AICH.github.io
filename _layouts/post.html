@@ -14,6 +14,10 @@ layout: default
       <h1>{{ page.title }}</h1>
       <div class="post-meta">
         <span><i class="far fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</span>
+        {% assign words = content | number_of_words %}
+        {% assign mins = words | divided_by: 200 %}
+        {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
+        <span><i class="far fa-clock"></i> {{ mins }} min read</span>
         {% if page.categories.size > 0 %}
         <span><i class="far fa-folder-open"></i>
           {% for cat in page.categories %}
@@ -27,6 +31,15 @@ layout: default
         </span>
         {% endif %}
       </div>
+      {% if page.certification %}
+      <div class="post-certification-link">
+        {% for cert in site.data.certifications.items %}
+          {% if cert.name == page.certification %}
+          <a href="{{ '/certifications/' | append: cert.slug | append: '/' | relative_url }}"><i class="fas fa-certificate"></i> {{ cert.name }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
       <div class="post-tags">
         {% for tag in page.tags %}
         <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">#{{ tag }}</a>
@@ -37,6 +50,26 @@ layout: default
     <div class="content" id="post-body">
       {{ content }}
     </div>
+
+    <!-- Previous / Next Navigation -->
+    <nav class="post-nav">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-item post-nav-prev">
+        <i class="fas fa-chevron-left"></i>
+        <span>{{ page.previous.title }}</span>
+      </a>
+      {% else %}
+      <span class="post-nav-item post-nav-prev disabled"></span>
+      {% endif %}
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-item post-nav-next">
+        <span>{{ page.next.title }}</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      {% else %}
+      <span class="post-nav-item post-nav-next disabled"></span>
+      {% endif %}
+    </nav>
   </article>
 
   <aside class="right-panel">
@@ -50,6 +83,11 @@ layout: default
     {% include trending-tags.html %}
   </aside>
 </div>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 {% if page.toc %}
 <script>
@@ -71,3 +109,37 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 {% endif %}
+
+<!-- Code Copy + Back to Top -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Code copy buttons
+  document.querySelectorAll('.content pre').forEach(function(pre) {
+    var btn = document.createElement('button');
+    btn.className = 'code-copy-btn';
+    btn.innerHTML = '<i class="far fa-copy"></i>';
+    btn.title = 'Copy code';
+    btn.addEventListener('click', function() {
+      var code = pre.querySelector('code');
+      var text = code ? code.textContent : pre.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(function() { btn.innerHTML = '<i class="far fa-copy"></i>'; }, 1500);
+      });
+    });
+    pre.style.position = 'relative';
+    pre.appendChild(btn);
+  });
+
+  // Back to top
+  var topBtn = document.getElementById('back-to-top');
+  if (topBtn) {
+    window.addEventListener('scroll', function() {
+      topBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+    topBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+</script>

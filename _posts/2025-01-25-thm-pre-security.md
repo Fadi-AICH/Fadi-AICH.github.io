@@ -2,6 +2,7 @@
 title: "TryHackMe Pre Security Path — Notes"
 date: 2025-01-25
 categories: [TryHackMe]
+certification: "TryHackMe - Pre Security Path"
 tags: [tryhackme, networking, web, linux, windows]
 difficulty: Facile
 toc: true

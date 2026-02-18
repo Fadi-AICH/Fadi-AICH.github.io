@@ -2,6 +2,7 @@
 title: "Google Cybersecurity Certificate — Notes"
 date: 2025-01-10
 categories: [Cyber Notes]
+certification: "Google Cybersecurity Certificate"
 tags: [google, cybersecurity, siem, linux, sql, python]
 toc: true
 ---

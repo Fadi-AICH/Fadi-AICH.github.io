@@ -2,6 +2,7 @@
 title: "Introduction to Cybersecurity — Notes"
 date: 2025-01-01
 categories: [Cyber Notes]
+certification: "Introduction to Cybersecurity"
 tags: [cybersecurity, cisco, coursera, fundamentals]
 toc: true
 ---

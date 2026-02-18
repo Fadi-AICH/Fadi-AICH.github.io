@@ -20,12 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Theme toggle
+  // Theme toggle — sync icon on load
   var saved = localStorage.getItem('theme');
   if (saved) {
     document.documentElement.setAttribute('data-theme', saved);
-    updateIcon(saved);
   }
+  // Always sync icon to current theme on page load
+  updateIcon(document.documentElement.getAttribute('data-theme') || 'dark');
 
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {

@@ -34,7 +34,7 @@ layout: default
       {% assign certs = site.data.certifications %}
     {% endif %}
     {% for cert in certs %}
-    <div class="cert-card" data-status="{{ cert.status }}">
+    <a href="{{ '/certifications/' | append: cert.slug | append: '/' | relative_url }}" class="cert-card" data-status="{{ cert.status }}">
       <div class="cert-card-header">
         <span class="cert-badge cert-badge--{{ cert.status }}">
           {% if cert.status == "completed" %}🟢{% elsif cert.status == "in-progress" %}🟡{% else %}🔴{% endif %}
@@ -42,13 +42,7 @@ layout: default
         <span class="cert-number">#{{ forloop.index }}</span>
       </div>
       <div class="cert-card-body">
-        <h3 class="cert-title">
-          {% if cert.status == "completed" and cert.post_url %}
-            <a href="{{ cert.post_url | relative_url }}">{{ cert.name }}</a>
-          {% else %}
-            {{ cert.name }}
-          {% endif %}
-        </h3>
+        <h3 class="cert-title">{{ cert.name }}</h3>
         <p class="cert-provider">{{ cert.provider }}</p>
         {% if cert.description %}
         <p class="cert-desc">{{ cert.description }}</p>
@@ -60,8 +54,17 @@ layout: default
           {% elsif cert.status == "in-progress" %}In Progress
           {% else %}Not Started{% endif %}
         </span>
+        {% assign note_count = 0 %}
+        {% for post in site.posts %}
+          {% if post.certification == cert.name %}
+            {% assign note_count = note_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if note_count > 0 %}
+        <span class="cert-note-count"><i class="fas fa-file-alt"></i> {{ note_count }} note{% if note_count != 1 %}s{% endif %}</span>
+        {% endif %}
       </div>
-    </div>
+    </a>
     {% endfor %}
   </div>
 </div>
