@@ -1,7 +1,7 @@
 ---
 title: TryHackMe — Kenobi
 date: 2025-02-10
-image: /assets/img/téléchargebment.png
+image: /assets/img/telechargement-2.png
 categories:
   - TryHackMe
 difficulty: Medium
