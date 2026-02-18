@@ -2,6 +2,8 @@ backend:
   name: github
   repo: Fadi-AICH/Fadi-AICH.github.io
   branch: main
+  base_url: https://fadi-aich-github-io.pages.dev
+  auth_endpoint: /auth
 
 media_folder: "assets/img"
 public_folder: "/assets/img"
