@@ -31,15 +31,6 @@ Computer engineering student with hands-on experience in network monitoring, int
 
 ---
 
-### Education
-
-- **Computer Engineering - 4th Year (CI2)** &mdash; ISMAGI, Rabat *(Since Oct 2025)*
-- **Computer Engineering - 1st to 3rd Year** &mdash; ENSI, Tanger *(Oct 2022 - Sept 2025)*
-- **1st Year Medicine** &mdash; Medical University Astrakhan, Russia *(Sept 2021 - June 2022)*
-- **Baccalaureate in Physical Sciences** (with honors) &mdash; Nador, Morocco *(2018 - 2021)*
-
----
-
 ### Experience
 
 - **Internship** &mdash; Tanger Med Port Authority (TMPA) *(Jul 2025 - Sept 2025)*
@@ -72,6 +63,5 @@ Computer engineering student with hands-on experience in network monitoring, int
 
 - GitHub: [Fadi-AICH](https://github.com/Fadi-AICH)
 - TryHackMe: [FadiX](https://tryhackme.com/p/FadiX)
-- LinkedIn: [fadiaich](https://linkedin.com/in/fadiaich)
 
 > *"Todo lo que aprendo lo subo aquí..."*
