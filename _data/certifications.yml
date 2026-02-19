@@ -1,76 +1,51 @@
 items:
-  - name: "Introduction to Cybersecurity"
-    slug: "intro-cybersecurity"
-    provider: "Cisco / Coursera"
-    status: "completed"
-    description: "Foundations of cybersecurity, threat landscape, and security principles."
-  - name: "Google Cybersecurity Certificate"
-    slug: "google-cybersecurity"
-    provider: "Google / Coursera"
-    status: "completed"
-    description: "Security operations, SIEM tools, Linux, SQL, and Python for security."
-  - name: "CompTIA Security+ (SY0-701)"
-    slug: "security-plus"
-    provider: "CompTIA"
-    status: "in-progress"
-    description: "Core security concepts, threats, architecture, operations, and governance."
-  - name: "TryHackMe - Complete Beginner Path"
-    slug: "thm-complete-beginner"
-    provider: "TryHackMe"
-    status: "completed"
-    description: "Linux fundamentals, networking, web hacking, and scripting basics."
-  - name: "TryHackMe - Pre Security Path"
-    slug: "thm-pre-security"
-    provider: "TryHackMe"
-    status: "completed"
-    description: "Network fundamentals, how the web works, and Linux basics."
-  - name: "HackTheBox - Starting Point"
-    slug: "htb-starting-point"
-    provider: "HackTheBox"
-    status: "in-progress"
-    description: "Guided introductory machines for penetration testing fundamentals."
-  - name: "TCM Security - Practical Ethical Hacking"
-    slug: "tcm-ethical-hacking"
-    provider: "TCM Security"
-    status: "not-started"
-    description: "Active Directory, network pentesting, web app testing, and OSINT."
-  - name: "eLearnSecurity eJPT"
-    slug: "ejpt"
-    provider: "INE Security"
-    status: "not-started"
-    description: "Junior Penetration Tester certification covering networking and web attacks."
-  - name: "Cisco CCNA (200-301)"
-    slug: "ccna"
-    provider: "Cisco"
-    status: "not-started"
-    description: "Networking fundamentals, IP connectivity, security, and automation."
-  - name: "Linux Essentials (LPI)"
-    slug: "linux-essentials"
-    provider: "Linux Professional Institute"
-    status: "in-progress"
-    description: "Command line, file management, scripting, and Linux architecture."
-  - name: "Python for Hackers"
-    slug: "python-for-hackers"
-    provider: "TCM Security"
-    status: "not-started"
-    description: "Python scripting for penetration testing and security automation."
-  - name: "OWASP Top 10 Mastery"
-    slug: "owasp-top-10"
-    provider: "Self-study"
-    status: "not-started"
-    description: "In-depth study of the OWASP Top 10 web application vulnerabilities."
-  - name: "Blue Team Level 1 (BTL1)"
-    slug: "btl1"
-    provider: "Security Blue Team"
-    status: "not-started"
-    description: "SOC analysis, threat intelligence, SIEM, and incident response."
-  - name: "CompTIA CySA+ (CS0-003)"
-    slug: "cysa-plus"
-    provider: "CompTIA"
-    status: "not-started"
-    description: "Security analytics, threat detection, and vulnerability management."
-  - name: "OSCP Preparation"
-    slug: "oscp-prep"
-    provider: "OffSec"
-    status: "not-started"
-    description: "Advanced penetration testing — the ultimate goal of this roadmap."
+  - name: Google Cybersecurity Certificate
+    slug: google-cybersecurity
+    provider: Google / Coursera
+    status: completed
+    description: Security operations, SIEM tools, Linux, SQL, and Python for security.
+  - name: CompTIA Security+ (SY0-701)
+    slug: security-plus
+    provider: CompTIA
+    status: in-progress
+    description: Core security concepts, threats, architecture, operations, and governance.
+  - name: TCM Security - Practical Ethical Hacking
+    slug: tcm-ethical-hacking
+    provider: TCM Security
+    status: not-started
+    description: Active Directory, network pentesting, web app testing, and OSINT.
+  - name: Cisco CCNA (200-301)
+    slug: ccna
+    provider: Cisco
+    status: not-started
+    description: Networking fundamentals, IP connectivity, security, and automation.
+  - name: Linux Essentials (LPI)
+    slug: linux-essentials
+    provider: Linux Professional Institute
+    status: in-progress
+    description: Command line, file management, scripting, and Linux architecture.
+  - name: Python for Hackers
+    slug: python-for-hackers
+    provider: TCM Security
+    status: not-started
+    description: Python scripting for penetration testing and security automation.
+  - name: OWASP Top 10 Mastery
+    slug: owasp-top-10
+    provider: Self-study
+    status: not-started
+    description: In-depth study of the OWASP Top 10 web application vulnerabilities.
+  - name: Blue Team Level 1 (BTL1)
+    slug: btl1
+    provider: Security Blue Team
+    status: not-started
+    description: SOC analysis, threat intelligence, SIEM, and incident response.
+  - name: CompTIA CySA+ (CS0-003)
+    slug: cysa-plus
+    provider: CompTIA
+    status: not-started
+    description: Security analytics, threat detection, and vulnerability management.
+  - name: OSCP Preparation
+    slug: oscp-prep
+    provider: OffSec
+    status: not-started
+    description: Advanced penetration testing — the ultimate goal of this roadmap.
