@@ -4,7 +4,6 @@ date: 2025-03-01
 image: /assets/img/telechargement-1.png
 categories:
   - Cyber Notes
-  - Linux
 tags:
   - linux
   - bash
@@ -12,7 +11,6 @@ tags:
   - sysadmin
 toc: true
 ---
-
 ## File System Navigation
 
 ```bash
@@ -50,7 +48,7 @@ curl / wget        # Download files
 
 ## Essential for Pentesting
 
-- `grep` — Search file contents
-- `awk` / `sed` — Text processing
-- `crontab -l` — Scheduled tasks (priv esc vector)
-- `/etc/passwd` and `/etc/shadow` — User credential files
+* `grep` — Search file contents
+* `awk` / `sed` — Text processing
+* `crontab -l` — Scheduled tasks (priv esc vector)
+* `/etc/passwd` and `/etc/shadow` — User credential files
