@@ -4,7 +4,6 @@ date: 2025-03-10
 image: /assets/img/digital-technology-social-network-global-connect-simple-business-logo-black-icon-on-white-background-vector.jpg
 categories:
   - Cyber Notes
-  - Networking
 tags:
   - networking
   - tcp-ip
@@ -13,21 +12,20 @@ tags:
   - subnetting
 toc: true
 ---
-
 ## The OSI Model
 
-| Layer | Name         | Protocol Examples    |
-|-------|-------------|---------------------|
-| 7     | Application | HTTP, DNS, FTP      |
-| 4     | Transport   | TCP, UDP            |
-| 3     | Network     | IP, ICMP            |
-| 2     | Data Link   | Ethernet, ARP       |
-| 1     | Physical    | Cables, Wi-Fi       |
+| Layer | Name        | Protocol Examples |
+| ----- | ----------- | ----------------- |
+| 7     | Application | HTTP, DNS, FTP    |
+| 4     | Transport   | TCP, UDP          |
+| 3     | Network     | IP, ICMP          |
+| 2     | Data Link   | Ethernet, ARP     |
+| 1     | Physical    | Cables, Wi-Fi     |
 
 ## TCP vs UDP
 
-- **TCP**: Reliable, connection-oriented (3-way handshake: SYN → SYN-ACK → ACK)
-- **UDP**: Fast, connectionless (used in DNS queries, streaming)
+* **TCP**: Reliable, connection-oriented (3-way handshake: SYN → SYN-ACK → ACK)
+* **UDP**: Fast, connectionless (used in DNS queries, streaming)
 
 ## IP Addressing & Subnetting
 
@@ -39,10 +37,10 @@ toc: true
 
 ## Key Tools
 
-- `nmap` — Network scanner and port mapper
-- `Wireshark` — Packet capture and analysis
-- `tcpdump` — CLI packet capture
-- `traceroute` / `tracert` — Path tracing
+* `nmap` — Network scanner and port mapper
+* `Wireshark` — Packet capture and analysis
+* `tcpdump` — CLI packet capture
+* `traceroute` / `tracert` — Path tracing
 
 ## DNS
 
