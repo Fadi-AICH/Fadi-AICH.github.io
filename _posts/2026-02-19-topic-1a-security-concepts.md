@@ -5,6 +5,7 @@ image: /assets/img/comptia-security-logo.png
 certification: CompTIA Security+ (SY0-701)
 categories:
   - Cyber Notes
+subcategory: "Lesson 1: Summarize Fundamental Security Concepts"
 difficulty: Facile
 toc: true
 ---
