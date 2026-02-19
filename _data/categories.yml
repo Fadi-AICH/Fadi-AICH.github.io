@@ -7,12 +7,3 @@ categories:
     description: HackTheBox machine write-ups
   - name: Cyber Notes
     description: General cybersecurity study notes
-  - name: Linux
-    description: Linux administration and command line
-    image: /assets/img/telechargement-1.png
-  - name: Networking
-    description: Network fundamentals and protocols
-    image: /assets/img/digital-technology-social-network-global-connect-simple-business-logo-black-icon-on-white-background-vector.jpg
-  - name: Python Hacking
-    description: Python scripting for security
-    image: /assets/img/telechargement.png
