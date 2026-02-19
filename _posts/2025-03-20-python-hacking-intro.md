@@ -4,7 +4,6 @@ date: 2025-03-20
 image: /assets/img/telechargement.png
 categories:
   - Cyber Notes
-  - Python Hacking
 tags:
   - python
   - scripting
