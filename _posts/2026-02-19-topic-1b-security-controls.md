@@ -1,6 +1,7 @@
 ---
 title: "Topic 1B: Security Controls"
 date: 2026-02-19T10:17:35.269Z
+image: /assets/img/comptia-security-logo.png
 certification: CompTIA Security+ (SY0-701)
 categories:
   - Cyber Notes
