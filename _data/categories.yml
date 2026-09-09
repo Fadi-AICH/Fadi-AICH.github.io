@@ -1,9 +1,15 @@
 categories:
+  - name: Projects
+    description: Engineering projects and detailed technical case studies
+  - name: Cyber Notes
+    description: General cybersecurity study notes
   - name: TryHackMe
     image: /assets/img/cat-tryhackme.png
     description: TryHackMe room write-ups and walkthroughs
   - name: HackTheBox
     image: /assets/img/cat-hackthebox.png
     description: HackTheBox machine write-ups
-  - name: Cyber Notes
-    description: General cybersecurity study notes
+  - name: Networking
+    description: Network engineering, monitoring and protocol projects
+  - name: Cloud Security
+    description: Cloud architecture and security learning
