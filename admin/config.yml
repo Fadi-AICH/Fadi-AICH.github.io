@@ -9,10 +9,10 @@ media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
-  # --- Write-ups & Notes ---
+  # --- Write-ups, Notes & Project Case Studies ---
   - name: "posts"
     label: "Write-ups & Notes"
-    label_singular: "Note"
+    label_singular: "Note / Case Study"
     folder: "_posts"
     create: true
     delete: true
@@ -21,34 +21,30 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "image", widget: "image", required: false, hint: "Room banner / screenshot" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false, hint: "Local banner / screenshot from assets/img" }
+      - { label: "External Image URL", name: "external_image", widget: "string", required: false, hint: "Optional raw GitHub/external thumbnail URL for project posts" }
+      - { label: "Custom Permalink", name: "permalink", widget: "string", required: false, hint: "Stable route such as /projects/my-project/" }
+      - { label: "Project Case Study", name: "case_study", widget: "boolean", required: false, default: false, hint: "Enables the detailed case-study UI" }
+      - { label: "Hide Top Banner", name: "hide_banner", widget: "boolean", required: false, default: false, hint: "Useful for case studies that explain the project before showing evidence" }
       - label: "Certification"
         name: "certification"
         widget: "select"
         required: false
         hint: "Link this note to a certification"
         options:
-          - "Introduction to Cybersecurity"
           - "Google Cybersecurity Certificate"
-          - "CompTIA Security+ (SY0-701)"
-          - "TryHackMe - Complete Beginner Path"
-          - "TryHackMe - Pre Security Path"
-          - "HackTheBox - Starting Point"
-          - "TCM Security - Practical Ethical Hacking"
-          - "eLearnSecurity eJPT"
-          - "Cisco CCNA (200-301)"
-          - "Linux Essentials (LPI)"
-          - "Python for Hackers"
-          - "OWASP Top 10 Mastery"
-          - "Blue Team Level 1 (BTL1)"
-          - "CompTIA CySA+ (CS0-003)"
-          - "OSCP Preparation"
+          - "AWS Certified Solutions Architect - Associate (SAA-C03)"
       - label: "Categories"
         name: "categories"
         widget: "select"
         multiple: true
         min: 1
         options:
+          - "Projects"
+          - "Cybersecurity"
+          - "MLOps"
+          - "Software"
+          - "Full-Stack"
           - "TryHackMe"
           - "HackTheBox"
           - "Cyber Notes"
@@ -96,7 +92,7 @@ collections:
             allow_add: true
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe identifier (e.g. thm-pre-security). Must match the detail page filename." }
+              - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe identifier. It should match an existing detail page when the card is clickable." }
               - { label: "Provider", name: "provider", widget: "string" }
               - label: "Status"
                 name: "status"
@@ -114,7 +110,7 @@ collections:
       - name: "categories-list"
         label: "Manage Categories"
         file: "_data/categories.yml"
-        description: "Add, edit categories with images and descriptions"
+        description: "Add or edit curated categories with optional images and descriptions"
         fields:
           - label: "Categories"
             name: "categories"
