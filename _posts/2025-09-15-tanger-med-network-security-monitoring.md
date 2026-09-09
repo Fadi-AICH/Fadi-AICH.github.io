@@ -5,12 +5,12 @@ date: 2025-09-15
 permalink: /projects/tanger-med-nsm/
 categories: [Projects, Cybersecurity, Networking]
 tags: [SELKS, Suricata, Zeek, Cisco, Kibana, IDS]
-image: /assets/img/tanger-med/tanger-med-p48.jpg
+image: /assets/img/tanger-med/tanger-med-p34.jpg
 excerpt: "Tanger Med internship project: passive Cisco traffic acquisition feeding a SELKS-based NSM stack with Suricata, Zeek, Elasticsearch/Kibana and Scirius."
 ---
 
-<style>.case-hero{border:1px solid var(--border-color);border-radius:18px;overflow:hidden;margin-bottom:1.5rem}.case-hero img{width:100%;display:block}.case-callout{padding:1rem 1.2rem;border-left:3px solid var(--accent);background:rgba(56,189,248,.06);margin:1.2rem 0}.case-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.case-gallery figure{margin:0;border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:var(--bg-card)}.case-gallery img{width:100%;display:block}.case-gallery figcaption{padding:.65rem;font-size:.78rem;color:var(--text-secondary)}.case-btn{display:inline-block;padding:.6rem .9rem;border:1px solid var(--accent);border-radius:10px;font-weight:700;margin:.4rem .4rem .4rem 0}@media(max-width:700px){.case-gallery{grid-template-columns:1fr}}</style>
-<div class="case-hero"><img src="{{ '/assets/img/tanger-med/tanger-med-p48.jpg' | relative_url }}" alt="Tanger Med NSM project"></div>
+<style>.case-hero{border:1px solid var(--border-color);border-radius:18px;overflow:hidden;margin-bottom:1.5rem;background:#fff}.case-hero img{width:100%;display:block}.case-callout{padding:1rem 1.2rem;border-left:3px solid var(--accent);background:rgba(56,189,248,.06);margin:1.2rem 0}.case-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.case-gallery figure{margin:0;border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:var(--bg-card)}.case-gallery img{width:100%;display:block}.case-gallery figcaption{padding:.65rem;font-size:.78rem;color:var(--text-secondary)}.case-btn{display:inline-block;padding:.6rem .9rem;border:1px solid var(--accent);border-radius:10px;font-weight:700;margin:.4rem .4rem .4rem 0}@media(max-width:700px){.case-gallery{grid-template-columns:1fr}}</style>
+<div class="case-hero"><img src="{{ '/assets/img/tanger-med/tanger-med-p34.jpg' | relative_url }}" alt="Tanger Med NSM architecture"></div>
 During my cybersecurity/network-monitoring internship at **Tanger Med Port Authority**, I designed and deployed a passive Network Security Monitoring chain combining Cisco traffic mirroring with the SELKS ecosystem.
 <div class="case-callout"><strong>Functional chain:</strong> Cisco SPAN/RSPAN → Suricata + Zeek → Elasticsearch → Kibana → SOC investigation, with Scirius for Suricata rule governance.</div>
 ## Architecture & implementation
