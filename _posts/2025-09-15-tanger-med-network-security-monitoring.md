@@ -85,7 +85,7 @@ This design is safer than placing an experimental monitoring stack inline. If th
 
 Private VLANs were used to reduce unnecessary lateral communication between systems in the DMZ. The report documents primary VLANs associated with isolated/community VLANs and a promiscuous path toward the firewall/router.
 
-<figure class="case-evidence"><img src="{{ '/assets/img/tanger-med/tanger-med-p45.jpg' | relative_url }}" alt="PVLAN configuration"><figcaption><strong>PVLAN design.</strong> Segmentation is part of the defensive architecture: monitoring observes traffic, while network controls reduce the amount of lateral communication that should be possible in the first place.</figcaption></figure>
+<figure class="case-evidence"><img src="{{ '/assets/img/tanger-med/tanger-med-p46.jpg' | relative_url }}" alt="PVLAN and post-deployment verification"><figcaption><strong>PVLAN and verification evidence.</strong> Segmentation is part of the defensive architecture: monitoring observes traffic while network controls reduce lateral communication, and post-deployment checks validate the resulting VLAN, trunk, SPAN and PVLAN state.</figcaption></figure>
 
 After configuration, I used standard Cisco verification commands to check VLAN state, trunks, SPAN sessions, PVLAN mappings and management reachability. The aim was to make the capture layer verifiable instead of assuming it worked because dashboards showed data.
 
