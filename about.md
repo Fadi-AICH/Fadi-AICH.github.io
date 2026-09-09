@@ -5,7 +5,7 @@ title: About
 
 ## Fadi AICH
 
-**Computer Engineering Student** specializing in **Cybersecurity & Complex Systems**
+**Final-year Computer Engineering Student · Cybersecurity & Complex Systems**
 
 Rabat, Morocco &bull; [fadiaich1@gmail.com](mailto:fadiaich1@gmail.com)
 
@@ -13,49 +13,44 @@ Rabat, Morocco &bull; [fadiaich1@gmail.com](mailto:fadiaich1@gmail.com)
 
 ### Profile
 
-Computer engineering student with hands-on experience in network monitoring, intrusion detection, and security data analysis. Strong interest in security engineering, data-driven approaches, and high-demand environments. Research-oriented mindset focused on continuous improvement and solving complex technical problems.
+Final-year computer engineering student focused on **cybersecurity engineering and cloud security**. I build hands-on security projects spanning intrusion detection, secure communications, monitoring, automation, containers, CI/CD and applied machine learning. My current technical direction is AWS cloud architecture and security, with the long-term goal of working in cloud security engineering and architecture.
 
 ---
 
-### Skills
+### Core Skills
 
 | Domain | Technologies |
 |---|---|
-| **Cybersecurity** | OWASP Top 10, Pentesting, WAF, SELKS Stack, Suricata, ELK, IDS/IPS |
-| **Cloud & DevOps** | Azure, Docker, CI/CD, GitHub Actions, Bash, Linux Admin |
-| **AI / ML** | CNN, MLP, Random Forest, Deep Learning, Streamlit |
-| **Languages** | C, C++, Python, PHP, Java, SQL |
+| **Security Engineering** | Network monitoring, IDS/IPS, OWASP Top 10, WAF, Suricata, ELK, security testing |
+| **Cloud & DevOps** | AWS *(learning)*, Azure, Docker, CI/CD, GitHub Actions, Linux, Bash |
+| **Security Data / ML** | Intrusion detection, CICIoT2023, MLflow, DVC, Prometheus, Grafana, Streamlit |
+| **Programming** | Python, C/C++, Java, SQL, JavaScript |
 | **Backend** | FastAPI, Node.js, Express.js |
-| **Frontend** | HTML, CSS, JavaScript |
-| **Languages** | Arabic (Native), French (Bilingual), English (Professional), Spanish (B1) |
+
+---
+
+### Selected Projects
+
+- **CyberGuard MLOps** — end-to-end IoT intrusion-detection platform with DVC, MLflow, FastAPI, Prometheus/Grafana, Airflow, Streamlit and CI/CD.
+- **Secure Transmission Protocol Simulator** — AES-CBC, Hamming(7,4), CRC, noisy-channel simulation, ACK/NACK retransmission and reliability analytics.
+- **Civiscore** — collaborative FastAPI/React platform with JWT authentication, Docker and CI/CD.
+
+[View the project portfolio →](/projects/)
 
 ---
 
 ### Experience
 
-- **Internship** &mdash; Tanger Med Port Authority (TMPA) *(Jul 2025 - Sept 2025)*
-- **Internship** &mdash; Tanger Med Port Authority (TMPA) *(Jul 2024)*
-- **Internship** &mdash; Tanger Med Port Authority (TMPA) *(Jul 2023)*
-- **Hospital Internship** &mdash; City Clinical Hospital #31, Saint Petersburg, Russia *(Aug 2022)*
+- **Internship** — Tanger Med Port Authority (TMPA) *(Jul 2025 – Sept 2025)*
+- **Internship** — Tanger Med Port Authority (TMPA) *(Jul 2024)*
+- **Internship** — Tanger Med Port Authority (TMPA) *(Jul 2023)*
+- **Hospital Internship** — City Clinical Hospital #31, Saint Petersburg, Russia *(Aug 2022)*
 
 ---
 
-### Projects
+### Current Focus
 
-- **AI Intrusion Detection** &mdash; CNN 1D, Random Forest, MLP pipeline with Streamlit dashboard for real-time traffic analysis
-- **Cloud & Vision (Azure)** &mdash; Custom Vision model deployed via REST API and Docker
-- **Distributed Architecture** &mdash; Multi-protocol booking system (REST, SOAP, RMI, Sockets) with JavaFX
-- **Cybersecurity & Monitoring** &mdash; SELKS stack deployment, Linux monitoring automation, API security
-- **Security Audit & Pentesting** &mdash; OWASP Top 10 attack simulation, SQLi/XSS identification, WAF setup
-- **Software Engineering** &mdash; Lexical/syntactic analyzer in C, secure web platforms with automated deployment
-
----
-
-### Activities
-
-- Planted 380 trees in school development project
-- Microsoft Tech Day Tanger &mdash; Active participant (Jan 2025)
-- Online chess tournaments for strategic thinking
+**AWS Solutions Architect – Associate (SAA-C03)** preparation, hands-on AWS architecture labs, and a larger secure cloud architecture project. Completed work will be documented publicly rather than listing unfinished mock projects as completed experience.
 
 ---
 
@@ -63,5 +58,3 @@ Computer engineering student with hands-on experience in network monitoring, int
 
 - GitHub: [Fadi-AICH](https://github.com/Fadi-AICH)
 - TryHackMe: [FadiX](https://tryhackme.com/p/FadiX)
-
-> *"Todo lo que aprendo lo subo aquí..."*
