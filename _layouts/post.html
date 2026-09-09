@@ -2,9 +2,15 @@
 layout: default
 ---
 
+{% if page.case_study %}
+<style>
+.case-lead{font-size:1.02rem;line-height:1.75;color:var(--text-secondary);margin:.4rem 0 1.2rem}.case-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem;margin:1rem 0 1.5rem}.case-summary>div{padding:.85rem;border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card)}.case-summary b{display:block;color:var(--accent);font-size:1rem;margin-bottom:.2rem}.case-summary span{font-size:.75rem;color:var(--text-secondary)}.case-flow{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:1rem 0 1.35rem}.case-flow span{padding:.45rem .65rem;border:1px solid var(--border-color);border-radius:9px;background:rgba(56,189,248,.05);font-size:.78rem}.case-flow i{color:var(--accent);font-style:normal}.case-note{padding:1rem 1.1rem;border-left:3px solid var(--accent);border-radius:0 10px 10px 0;background:rgba(56,189,248,.06);margin:1rem 0 1.4rem}.case-warning{padding:1rem 1.1rem;border-left:3px solid #f59e0b;border-radius:0 10px 10px 0;background:rgba(245,158,11,.07);margin:1rem 0 1.4rem}.case-evidence{margin:1.15rem 0 1.65rem;border:1px solid var(--border-color);border-radius:14px;overflow:hidden;background:var(--bg-card)}.case-evidence img{display:block;width:100%;height:auto;background:#fff}.case-evidence figcaption{padding:.75rem .9rem;color:var(--text-secondary);font-size:.78rem;line-height:1.55}.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0 1.5rem}.case-grid .case-evidence{margin:0}.case-table{width:100%;display:block;overflow-x:auto}.case-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.4rem 0}.case-actions a{padding:.55rem .8rem;border:1px solid var(--border-color);border-radius:9px;font-weight:700;font-size:.82rem}.case-actions a:first-child{border-color:var(--accent);background:rgba(56,189,248,.06)}.case-kicker{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:.5rem}.content h2{margin-top:2.15rem}.content h3{margin-top:1.45rem}.content p{line-height:1.75}.content li{margin:.35rem 0;line-height:1.6}@media(max-width:900px){.case-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.case-summary,.case-grid{grid-template-columns:1fr}.case-flow i{display:none}}
+</style>
+{% endif %}
+
 <div class="two-column">
   <article class="main-col post-content">
-    {% if page.image %}
+    {% if page.image and page.hide_banner != true %}
     <div class="post-banner">
       <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
     </div>
@@ -26,9 +32,7 @@ layout: default
         </span>
         {% endif %}
         {% if page.difficulty %}
-        <span class="difficulty difficulty--{{ page.difficulty | downcase }}">
-          {{ page.difficulty }}
-        </span>
+        <span class="difficulty difficulty--{{ page.difficulty | downcase }}">{{ page.difficulty }}</span>
         {% endif %}
       </div>
       {% if page.certification %}
@@ -41,105 +45,37 @@ layout: default
       </div>
       {% endif %}
       <div class="post-tags">
-        {% for tag in page.tags %}
-        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">#{{ tag }}</a>
-        {% endfor %}
+        {% for tag in page.tags %}<a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">#{{ tag }}</a>{% endfor %}
       </div>
     </header>
 
-    <div class="content" id="post-body">
-      {{ content }}
-    </div>
+    <div class="content" id="post-body">{{ content }}</div>
 
-    <!-- Previous / Next Navigation -->
     <nav class="post-nav">
-      {% if page.previous.url %}
-      <a href="{{ page.previous.url | relative_url }}" class="post-nav-item post-nav-prev">
-        <i class="fas fa-chevron-left"></i>
-        <span>{{ page.previous.title }}</span>
-      </a>
-      {% else %}
-      <span class="post-nav-item post-nav-prev disabled"></span>
-      {% endif %}
-      {% if page.next.url %}
-      <a href="{{ page.next.url | relative_url }}" class="post-nav-item post-nav-next">
-        <span>{{ page.next.title }}</span>
-        <i class="fas fa-chevron-right"></i>
-      </a>
-      {% else %}
-      <span class="post-nav-item post-nav-next disabled"></span>
-      {% endif %}
+      {% if page.previous.url %}<a href="{{ page.previous.url | relative_url }}" class="post-nav-item post-nav-prev"><i class="fas fa-chevron-left"></i><span>{{ page.previous.title }}</span></a>{% else %}<span class="post-nav-item post-nav-prev disabled"></span>{% endif %}
+      {% if page.next.url %}<a href="{{ page.next.url | relative_url }}" class="post-nav-item post-nav-next"><span>{{ page.next.title }}</span><i class="fas fa-chevron-right"></i></a>{% else %}<span class="post-nav-item post-nav-next disabled"></span>{% endif %}
     </nav>
   </article>
 
   <aside class="right-panel">
-    {% if page.toc %}
-    <div class="widget toc-widget">
-      <h3 class="widget-title"><i class="fas fa-list"></i> Table of Contents</h3>
-      <ul class="toc-list" id="toc-list"></ul>
-    </div>
-    {% endif %}
-
+    {% if page.toc %}<div class="widget toc-widget"><h3 class="widget-title"><i class="fas fa-list"></i> Table of Contents</h3><ul class="toc-list" id="toc-list"></ul></div>{% endif %}
     {% include trending-tags.html %}
   </aside>
 </div>
 
-<!-- Back to Top Button -->
-<button id="back-to-top" class="back-to-top" aria-label="Back to top">
-  <i class="fas fa-arrow-up"></i>
-</button>
+<button id="back-to-top" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
 {% if page.toc %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var content = document.getElementById('post-body');
-  var tocList = document.getElementById('toc-list');
-  if (!content || !tocList) return;
-  var headings = content.querySelectorAll('h2, h3');
-  headings.forEach(function(h, i) {
-    if (!h.id) h.id = 'heading-' + i;
-    var li = document.createElement('li');
-    li.className = 'toc-entry toc-' + h.tagName.toLowerCase();
-    var a = document.createElement('a');
-    a.href = '#' + h.id;
-    a.textContent = h.textContent;
-    li.appendChild(a);
-    tocList.appendChild(li);
-  });
+  var content = document.getElementById('post-body'); var tocList = document.getElementById('toc-list'); if (!content || !tocList) return;
+  var headings = content.querySelectorAll('h2, h3'); headings.forEach(function(h, i) { if (!h.id) h.id = 'heading-' + i; var li = document.createElement('li'); li.className = 'toc-entry toc-' + h.tagName.toLowerCase(); var a = document.createElement('a'); a.href = '#' + h.id; a.textContent = h.textContent; li.appendChild(a); tocList.appendChild(li); });
 });
 </script>
 {% endif %}
-
-<!-- Code Copy + Back to Top -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Code copy buttons
-  document.querySelectorAll('.content pre').forEach(function(pre) {
-    var btn = document.createElement('button');
-    btn.className = 'code-copy-btn';
-    btn.innerHTML = '<i class="far fa-copy"></i>';
-    btn.title = 'Copy code';
-    btn.addEventListener('click', function() {
-      var code = pre.querySelector('code');
-      var text = code ? code.textContent : pre.textContent;
-      navigator.clipboard.writeText(text).then(function() {
-        btn.innerHTML = '<i class="fas fa-check"></i>';
-        setTimeout(function() { btn.innerHTML = '<i class="far fa-copy"></i>'; }, 1500);
-      });
-    });
-    pre.style.position = 'relative';
-    pre.appendChild(btn);
-  });
-
-  // Back to top
-  var topBtn = document.getElementById('back-to-top');
-  if (topBtn) {
-    window.addEventListener('scroll', function() {
-      topBtn.classList.toggle('visible', window.scrollY > 300);
-    });
-    topBtn.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+  document.querySelectorAll('.content pre').forEach(function(pre) { var btn = document.createElement('button'); btn.className = 'code-copy-btn'; btn.innerHTML = '<i class="far fa-copy"></i>'; btn.title = 'Copy code'; btn.addEventListener('click', function() { var code = pre.querySelector('code'); var text = code ? code.textContent : pre.textContent; navigator.clipboard.writeText(text).then(function() { btn.innerHTML = '<i class="fas fa-check"></i>'; setTimeout(function() { btn.innerHTML = '<i class="far fa-copy"></i>'; }, 1500); }); }); pre.style.position = 'relative'; pre.appendChild(btn); });
+  var topBtn = document.getElementById('back-to-top'); if (topBtn) { window.addEventListener('scroll', function() { topBtn.classList.toggle('visible', window.scrollY > 300); }); topBtn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
 });
 </script>
