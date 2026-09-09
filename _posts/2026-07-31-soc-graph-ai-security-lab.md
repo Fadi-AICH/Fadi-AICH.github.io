@@ -5,12 +5,12 @@ date: 2026-07-31
 permalink: /projects/soc-graph-ai/
 categories: [Projects, Cybersecurity]
 tags: [Wazuh, Neo4j, MITRE-ATTACK, SOAR, Detection-Engineering, Python]
-image: /assets/img/nearsecure/nearsecure-p48.jpg
+image: /assets/img/nearsecure/nearsecure-p20.jpg
 excerpt: "NearSecure internship project: an end-to-end SOC lab connecting Wazuh detections, MITRE enrichment, UEBA/ML, Neo4j graph correlation, analyst dashboards and approval-gated SOAR."
 ---
 
-<style>.case-hero{border:1px solid var(--border-color);border-radius:18px;overflow:hidden;margin-bottom:1.5rem}.case-hero img{width:100%;display:block}.case-callout{padding:1rem 1.2rem;border-left:3px solid var(--accent);background:rgba(56,189,248,.06);margin:1.2rem 0}.case-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.case-gallery figure{margin:0;border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:var(--bg-card)}.case-gallery img{width:100%;display:block}.case-gallery figcaption{padding:.65rem;font-size:.78rem;color:var(--text-secondary)}.case-btn{display:inline-block;padding:.6rem .9rem;border:1px solid var(--accent);border-radius:10px;font-weight:700;margin:.4rem .4rem .4rem 0}@media(max-width:700px){.case-gallery{grid-template-columns:1fr}}</style>
-<div class="case-hero"><img src="{{ '/assets/img/nearsecure/nearsecure-p48.jpg' | relative_url }}" alt="SOC Graph AI project evidence"></div>
+<style>.case-hero{border:1px solid var(--border-color);border-radius:18px;overflow:hidden;margin-bottom:1.5rem;background:#fff}.case-hero img{width:100%;display:block}.case-callout{padding:1rem 1.2rem;border-left:3px solid var(--accent);background:rgba(56,189,248,.06);margin:1.2rem 0}.case-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.case-gallery figure{margin:0;border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:var(--bg-card)}.case-gallery img{width:100%;display:block}.case-gallery figcaption{padding:.65rem;font-size:.78rem;color:var(--text-secondary)}.case-btn{display:inline-block;padding:.6rem .9rem;border:1px solid var(--accent);border-radius:10px;font-weight:700;margin:.4rem .4rem .4rem 0}@media(max-width:700px){.case-gallery{grid-template-columns:1fr}}</style>
+<div class="case-hero"><img src="{{ '/assets/img/nearsecure/nearsecure-p20.jpg' | relative_url }}" alt="SOC Graph AI architecture"></div>
 This NearSecure internship project was built around one idea: **a security event should remain traceable from detection to analyst decision**. The laboratory connects controlled adversary activity to Wazuh, a Python analytics pipeline, MITRE ATT&CK enrichment, local UEBA/ML scoring, Neo4j graph correlation, Streamlit analyst views and approval-gated n8n/Shuffle workflows.
 <div class="case-callout"><strong>Final validated dataset:</strong> 1,396 alerts. The project demonstrates the full evidence chain—controlled activity → detection → normalized/enriched data → graph relationship → risk score → analyst view → controlled triage.</div>
 ## Architecture
