@@ -1,10 +1,10 @@
-title: Portfolio Fadix
-tagline: "Todo lo que aprendo lo subo aquí..."
+title: Fadi AICH
+tagline: "Cybersecurity Engineering · Cloud Security"
 description: >-
-  Cybersecurity portfolio — write-ups, certifications, and hacking notes by Fadix.
+  Cybersecurity engineering portfolio by Fadi AICH — security projects, cloud labs, technical write-ups, and certifications.
 url: ""
 baseurl: ""
-github_username: fadix
+github_username: Fadi-AICH
 
 avatar: /assets/img/fadix.jpg
 
@@ -15,12 +15,12 @@ tabs:
   - title: Home
     url: /
     icon: fas fa-home
+  - title: Projects
+    url: /projects/
+    icon: fas fa-code
   - title: Categories
     url: /categories/
     icon: fas fa-stream
-  - title: Tags
-    url: /tags/
-    icon: fas fa-tags
   - title: Certifications
     url: /certifications/
     icon: fas fa-certificate
@@ -33,10 +33,10 @@ tabs:
 
 # Social links
 social:
-  github: https://github.com/fadix
+  github: https://github.com/Fadi-AICH
   linkedin: https://linkedin.com/in/fadix
-  tryhackme: https://tryhackme.com/p/fadix
-  hackthebox: https://app.hackthebox.com/profile/fadix
+  tryhackme: https://tryhackme.com/p/FadiX
+  hackthebox: https://app.hackthebox.com/profile/FadiX
 
 # Build
 markdown: kramdown
