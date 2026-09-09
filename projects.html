@@ -1,0 +1,51 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+
+<style>
+.projects-hero{margin-bottom:2rem;padding:1.5rem;border:1px solid var(--border-color);border-radius:14px;background:linear-gradient(135deg,rgba(56,189,248,.10),rgba(39,39,42,.35))}.projects-hero h2{margin:0 0 .5rem;font-size:1.55rem}.projects-hero p{margin:0;color:var(--text-secondary)}.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}.project-card{overflow:hidden;border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card);box-shadow:var(--shadow);transition:.25s}.project-card:hover{transform:translateY(-3px);border-color:var(--accent)}.project-card.featured{grid-column:1/-1}.project-cover{width:100%;height:220px;object-fit:cover;display:block;background:#111827}.project-card.featured .project-cover{height:340px}.project-body{padding:1.25rem}.project-kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:700}.project-body h3{margin:.3rem 0 .55rem;font-size:1.25rem}.project-body p{color:var(--text-secondary);font-size:.92rem}.project-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.85rem 0}.project-tags span{font-size:.72rem;padding:.2rem .55rem;border-radius:999px;background:rgba(56,189,248,.10);color:var(--accent)}.project-links{display:flex;gap:.75rem;flex-wrap:wrap}.project-links a{display:inline-flex;align-items:center;gap:.35rem;font-weight:700;font-size:.85rem}.project-note{margin-top:2rem;padding:1rem 1.2rem;border-left:3px solid var(--accent);background:rgba(56,189,248,.05);color:var(--text-secondary)}@media(max-width:760px){.project-grid{grid-template-columns:1fr}.project-card.featured{grid-column:auto}.project-card.featured .project-cover,.project-cover{height:210px}}
+</style>
+
+<section class="projects-hero">
+  <h2>Selected Engineering & Security Projects</h2>
+  <p>A curated selection of completed work. I prioritize projects that demonstrate security engineering, systems thinking, reproducibility, testing, and production-oriented tooling.</p>
+</section>
+
+<div class="project-grid">
+  <article class="project-card featured">
+    <img class="project-cover" src="https://raw.githubusercontent.com/Fadi-AICH/cyberguard-mlops/main/screenshots/11_grafana_soc_dashboard.png" alt="CyberGuard SOC monitoring dashboard">
+    <div class="project-body">
+      <div class="project-kicker">Featured · Cybersecurity / MLOps</div>
+      <h3>CyberGuard MLOps — IoT Intrusion Detection Platform</h3>
+      <p>End-to-end intrusion-detection pipeline built on CICIoT2023: reproducible data/model workflows, experiment tracking, model serving, observability, orchestration and a SOC-style analyst interface. The selected Gradient Boosting model reached an F1 score of 0.941 on the project sample.</p>
+      <div class="project-tags"><span>Python</span><span>FastAPI</span><span>MLflow</span><span>DVC</span><span>Docker</span><span>Prometheus</span><span>Grafana</span><span>Airflow</span><span>Streamlit</span><span>GitHub Actions</span></div>
+      <div class="project-links"><a href="https://github.com/Fadi-AICH/cyberguard-mlops" target="_blank"><i class="fab fa-github"></i> Repository</a></div>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img class="project-cover" src="https://raw.githubusercontent.com/Fadi-AICH/Secure-Transmission-Protocol-Simulator/main/docs/screenshots/simulation_tab.png" alt="Secure Transmission Protocol Simulator interface">
+    <div class="project-body">
+      <div class="project-kicker">Security Engineering / Networking</div>
+      <h3>Secure Transmission Protocol Simulator</h3>
+      <p>Desktop engineering simulator for secure and reliable communication over a noisy channel, combining AES-CBC, Hamming(7,4), CRC, ACK/NACK retransmission, error injection and real-time reliability analytics.</p>
+      <div class="project-tags"><span>Python</span><span>PySide6</span><span>AES</span><span>CRC</span><span>Hamming</span><span>Pytest</span></div>
+      <div class="project-links"><a href="https://github.com/Fadi-AICH/Secure-Transmission-Protocol-Simulator" target="_blank"><i class="fab fa-github"></i> Repository</a></div>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img class="project-cover" src="https://raw.githubusercontent.com/Fadi-AICH/Civiscore/main/image.png" alt="Civiscore application interface">
+    <div class="project-body">
+      <div class="project-kicker">Full Stack / Team Project</div>
+      <h3>Civiscore — Public Service Evaluation Platform</h3>
+      <p>Participatory platform for evaluating public services, with JWT authentication, REST APIs, interactive geospatial visualization, Docker-based deployment and CI/CD. Built collaboratively with two teammates.</p>
+      <div class="project-tags"><span>FastAPI</span><span>React</span><span>MySQL</span><span>Docker</span><span>GitHub Actions</span><span>JWT</span></div>
+      <div class="project-links"><a href="https://github.com/Fadi-AICH/Civiscore" target="_blank"><i class="fab fa-github"></i> Repository</a></div>
+    </div>
+  </article>
+</div>
+
+<div class="project-note"><strong>Current direction:</strong> Cloud security engineering. AWS architecture and security labs will be added here as they are completed and independently documented.</div>
