@@ -1,0 +1,28 @@
+{
+  "source": "The Hacker News",
+  "source_url": "https://thehackernews.com/",
+  "updated_at": "2026-10-07T00:00:00+00:00",
+  "items": [
+    {
+      "title": "Fake ChatGPT, Gemini, and Claude Ad Portals Capture Credentials and MFA Codes",
+      "link": "https://thehackernews.com/",
+      "published": "2026-10-06T18:38:00+00:00",
+      "excerpt": "Cybersecurity researchers disclosed a phishing platform impersonating popular AI services to steal credentials and MFA codes.",
+      "categories": [
+        "Phishing",
+        "AI"
+      ],
+      "image": ""
+    },
+    {
+      "title": "Linux Backdoors Impersonate Email Security Tools to Evade Detection in Korea and Taiwan",
+      "link": "https://thehackernews.com/",
+      "published": "2026-10-06T18:24:00+00:00",
+      "excerpt": "Linux backdoors are disguising malicious traffic and processes as legitimate email-security software.",
+      "categories": [
+        "Malware"
+      ],
+      "image": ""
+    }
+  ]
+}
