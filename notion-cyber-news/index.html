@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>The Hacker News — Cybersecurity Feed</title>
+<style>
+:root{
+  --bg:#191919;--panel:#202020;--panel2:#262626;--line:#343434;
+  --text:#f2f2f2;--muted:#a7a7a7;--subtle:#7f7f7f;--accent:#ff6b35;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:transparent;color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{padding:0}
+.widget{background:var(--bg);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:#1d1d1d;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:750;font-size:15px}
+.logo{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,107,53,.12)}
+.live{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:11px}
+.live::before{content:"";width:6px;height:6px;border-radius:50%;background:#53d769}
+.feed{display:flex;flex-direction:column}
+.card{display:grid;grid-template-columns:132px 1fr auto;gap:13px;padding:12px 14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;background:var(--panel);transition:background .15s ease}
+.card:hover{background:var(--panel2)}
+.card:last-child{border-bottom:0}
+.thumb{width:132px;height:78px;border-radius:8px;object-fit:cover;background:linear-gradient(135deg,#3a3a3a,#252525);display:block}
+.thumb-wrap{position:relative;width:132px;height:78px}
+.thumb-fallback{position:absolute;inset:0;border-radius:8px;background:linear-gradient(135deg,#393939,#232323);display:flex;align-items:center;justify-content:center;color:#bdbdbd;font-weight:800;font-size:12px;letter-spacing:.06em}
+.content{min-width:0}
+.title{font-size:13.5px;line-height:1.38;font-weight:700;margin:0 0 6px;color:#fff}
+.excerpt{font-size:11.5px;line-height:1.45;color:#b7b7b7;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:8px;font-size:10.5px;color:var(--muted)}
+.tag{padding:3px 6px;border:1px solid #444;border-radius:999px;background:#242424;color:#c8c8c8}
+.time{white-space:nowrap;color:var(--muted);font-size:10.5px;padding-top:2px}
+.loading,.error{padding:26px 16px;text-align:center;color:var(--muted);font-size:12px}
+.footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px;background:#1b1b1b;border-top:1px solid var(--line);font-size:10px;color:var(--subtle)}
+.footer a{color:#bdbdbd;text-decoration:none}
+.footer a:hover{color:#fff}
+@media(max-width:680px){
+  .card{grid-template-columns:104px 1fr;gap:10px}
+  .thumb,.thumb-wrap{width:104px;height:68px}
+  .time{display:none}
+}
+@media(max-width:460px){
+  .card{grid-template-columns:1fr}
+  .thumb,.thumb-wrap{width:100%;height:150px}
+}
+</style>
+</head>
+<body>
+<div class="widget">
+  <div class="header">
+    <div class="brand"><span class="logo"></span><span>The Hacker News</span></div>
+    <div class="live">Live · auto-updated</div>
+  </div>
+  <div id="feed" class="feed"><div class="loading">Loading latest cybersecurity news…</div></div>
+  <div class="footer">
+    <span id="updated">Refreshing…</span>
+    <a href="https://thehackernews.com/" target="_blank" rel="noopener">Open The Hacker News ↗</a>
+  </div>
+</div>
+<script>
+const feedEl=document.getElementById('feed');
+const updatedEl=document.getElementById('updated');
+const escapeHtml=(s='')=>s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const relTime=iso=>{
+  const d=new Date(iso),n=new Date(),s=Math.max(0,(n-d)/1000);
+  if(!Number.isFinite(s)) return '';
+  if(s<3600) return Math.max(1,Math.floor(s/60))+'m ago';
+  if(s<86400) return Math.floor(s/3600)+'h ago';
+  if(s<604800) return Math.floor(s/86400)+'d ago';
+  return d.toLocaleDateString(undefined,{month:'short',day:'numeric'});
+};
+function card(a){
+  const image=a.image?'<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="'+escapeHtml(a.image)+'" alt="" onerror="this.style.display=\'none\'">':'';
+  const tags=(a.categories||[]).slice(0,2).map(x=>'<span class="tag">'+escapeHtml(x)+'</span>').join('');
+  return '<a class="card" href="'+escapeHtml(a.link)+'" target="_blank" rel="noopener">'+
+    '<div class="thumb-wrap"><div class="thumb-fallback">THN</div>'+image+'</div>'+
+    '<div class="content"><div class="title">'+escapeHtml(a.title)+'</div>'+
+    '<p class="excerpt">'+escapeHtml(a.excerpt||'')+'</p>'+
+    '<div class="meta">'+tags+'</div></div>'+
+    '<div class="time">'+relTime(a.published)+'</div></a>';
+}
+async function load(){
+  try{
+    const r=await fetch('./news.json?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const data=await r.json();
+    const items=(data.items||[]).slice(0,7);
+    if(!items.length) throw new Error('No stories');
+    feedEl.innerHTML=items.map(card).join('');
+    const u=new Date(data.updated_at||Date.now());
+    updatedEl.textContent='Updated '+u.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  }catch(e){
+    feedEl.innerHTML='<div class="error">News feed is temporarily unavailable.</div>';
+    updatedEl.textContent='Update failed';
+  }
+}
+load();
+setInterval(load,10*60*1000);
+</script>
+</body>
+</html>
