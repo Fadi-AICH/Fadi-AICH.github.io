@@ -72,7 +72,14 @@ const relTime=iso=>{
   return d.toLocaleDateString(undefined,{month:'short',day:'numeric'});
 };
 function card(a){
-  const image=a.image?'<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="'+escapeHtml(a.image)+'" alt="" onerror="this.style.display=\'none\'">':'';
+  let image='';
+  if(a.image){
+    const cleanPath=String(a.image).replace(/^\.\//,'');
+    const primary='https://fadi-aich.github.io/notion-cyber-news/'+cleanPath+'?v='+encodeURIComponent(a.published||'');
+    const fallback='https://raw.githubusercontent.com/Fadi-AICH/Fadi-AICH.github.io/main/notion-cyber-news/'+cleanPath+'?v='+encodeURIComponent(a.published||'');
+    image='<img class="thumb" loading="lazy" src="'+escapeHtml(primary)+'" alt="" '+
+      'onerror="if(!this.dataset.fallback){this.dataset.fallback=\'1\';this.src=\''+escapeHtml(fallback)+'\';}else{this.style.display=\'none\';}">';
+  }
   const tags=(a.categories||[]).slice(0,2).map(x=>'<span class="tag">'+escapeHtml(x)+'</span>').join('');
   return '<a class="card" href="'+escapeHtml(a.link)+'" target="_blank" rel="noopener">'+
     '<div class="thumb-wrap"><div class="thumb-fallback">THN</div>'+image+'</div>'+
