@@ -3,6 +3,8 @@ name: Update Notion Cyber News
 on:
   workflow_dispatch:
   schedule:
+    # Every 30 minutes. The script reuses cached thumbnails and only commits
+    # when the actual article list changes, so normal runs stay very light.
     - cron: "*/30 * * * *"
   push:
     branches: [main]
@@ -20,17 +22,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Update RSS snapshot
+      - name: Update RSS snapshot and cache thumbnails
         run: python3 notion-cyber-news/update_news.py
 
-      - name: Commit refreshed news
+      - name: Commit refreshed news only when content changed
         run: |
-          if git diff --quiet -- notion-cyber-news/news.json; then
-            echo "No changes"
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add notion-cyber-news/news.json
+
+          git add -A notion-cyber-news/news.json notion-cyber-news/images
+
+          if git diff --cached --quiet; then
+            echo "No article or thumbnail changes"
+            exit 0
+          fi
+
           git commit -m "chore: refresh cybersecurity news [skip ci]"
           git push
